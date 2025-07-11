@@ -328,7 +328,7 @@ If you are interested in deeper details (e.g., regex-based split, saving/loading
 
 While BPE Tokenizer is a good option, it is not the perfect one. More advanced versions of tokenizers are being used in current LLMs. There are two widely adopted open-source tokenizer libraries: [tiktoken](https://github.com/openai/tiktoken) by OpenAI and [sentencepiece](https://github.com/google/sentencepiece) by Google. Both have different approaches to implement tokenization.  
 
-The goal of this blog was to give a basic intuition on tokenizers and their importance. Use this [X post]() for comments.  
+The goal of this blog was to give a basic intuition on tokenizers and their importance. Use this [X post](https://x.com/PriyaAryav/status/1943665531648987344) for comments.  
 
 See you in the next blog, and thank you for reading!  
 
