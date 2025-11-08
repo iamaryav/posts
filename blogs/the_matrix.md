@@ -632,7 +632,7 @@ Actually, one of the reasons that transformer architecture is famous is because 
 ---
 
 ### Summary
-The goal of this blog is to give intuition about matrices/tensors and their operations used in LLM training. Treat this blog as notes where you have operations written at one place, kind of like a handbook. I didn't write all the formulas and cover everything, but this has enough that I can use to explain upcoming blogs. I will keep updating this blog as I encounter new operations. Use this [X post]() for comments.  
+The goal of this blog is to give intuition about matrices/tensors and their operations used in LLM training. Treat this blog as notes where you have operations written at one place, kind of like a handbook. I didn't write all the formulas and cover everything, but this has enough that I can use to explain upcoming blogs. I will keep updating this blog as I encounter new operations. Use this [X post](https://x.com/PriyaAryav/status/1987212760783229382) for comments.  
 
 Yes, I did watch "The Matrix" movie before writing this blog. :) 
 
