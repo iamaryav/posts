@@ -1,6 +1,6 @@
 # tinybpe: a tiny byte pair encoder
 
-![](./images/tinybpe_cover.png)
+![](https://raw.githubusercontent.com/iamaryav/posts/2ffac9be40f163de7efc9d6f3480602bc1dea098/blogs/images/tinybpe_cover.png)
 
 ### In This Article
 - [What is Byte-Pair Encoder?](#what-is-byte-pair-encoder)
@@ -22,11 +22,11 @@ This is an algorithm that compresses texts by using a table. This algorithm is u
 
 It gives us the freedom to write in English or any human-readable language, and then BPE takes that language and converts it into tokens. In the same way, a model outputs only tokens, and a tokenizer decodes the tokens into the English language. We can see the tokenization flow in this diagram.    
 
-![](./images/tokenizer_diagram.png)  
+![](https://raw.githubusercontent.com/iamaryav/posts/2ffac9be40f163de7efc9d6f3480602bc1dea098/blogs/images/tokenizer_diagram.png)  
 
 In the image below, you can see a sentence and the tokens after conversion in the GPT-4o model. That is what a model sees when we ask them a question. If you want to play more with this, check out [tiktokenizer](https://tiktokenizer.vercel.app/) on how different models convert texts into tokens.  
 
-![](./images/tiktokenizer.png)
+![](https://raw.githubusercontent.com/iamaryav/posts/2ffac9be40f163de7efc9d6f3480602bc1dea098/blogs/images/tiktokenizer.png)
 
 ---
 
@@ -296,11 +296,11 @@ e.g.: The word "morning" is two tokens in GPT-4o, but we know that "morning" is 
 
 **r in Strawberry:** There is one incident where you ask the model how many 'r's are in Strawberry, and the models count this wrong many times; it will give wrong answers like 2, and this issue is related to tokenization. Chat thread with ChatGPT [two r](https://chatgpt.com/s/t_686f9ae84e408191827ae4c46cc9fff8)  
 
-![](./images/strawberry.png)
+![](https://raw.githubusercontent.com/iamaryav/posts/2ffac9be40f163de7efc9d6f3480602bc1dea098/blogs/images/strawberry.png)
 
 **9.11 > 9.9:** Yes, you saw this right. Most models still to this day will tell you 9.11 is greater than 9.9, and this issue is related to tokenization and training both. During tokenization it treats everything as a string and doesn't give weight to numbers. Chat thread with Gemini [9.11 > 9.9](https://g.co/gemini/share/12f026470f24)  
 
-![](./images/math_911.png)  
+![](https://raw.githubusercontent.com/iamaryav/posts/2ffac9be40f163de7efc9d6f3480602bc1dea098/blogs/images/math_911.png)  
 
 There are many such cases where, where due to tokenization, you will be able to see these kinds of subtle issues. I won't say that these issues are deal breakers, but they are something to be aware of while building tokenization.
 
