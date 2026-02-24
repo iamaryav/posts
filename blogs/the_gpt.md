@@ -35,13 +35,13 @@ $$
 This comes from the chain rule of probability and is described in the paper [A Neural Probabilistic Language Model by Bengio et al. 2003](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf). It states that the probability of an entire sequence can be decomposed into a product of conditional next-token probabilities. In practice, GPT does not predict a full sentence at once. Instead, it learns to predict the next token given all previous tokens.     
 
 $$
-P(x_t \mid x_{<t})
+P(x_t \mid x_{\lt t})
 $$
 
 Training maximizes the log-likelihood.    
 
 $$
-\log P(x_1, \dots, x_T) = \sum_{t=1}^T \log P(x_t \mid x_{<t})
+\log P(x_1, \dots, x_T) = \sum_{t=1}^T \log P(x_t \mid x_{\lt t})
 $$
 
 This is exactly what the cross-entropy loss computes during training that we will discuss in the training section.  
@@ -584,20 +584,7 @@ if iter % eval_interval == 0 or iter == max_iters - 1:
 Cross Entropy Loss 
 
 $$
-\mathcal{L}(\theta)
-=
--
-\frac{1}{T}
-\sum_{t=1}^{T}
-\log
-\left(
-\frac{
-\exp\big(z_{t, y_t}\big)
-}{
-\sum_{j=1}^{|V|}
-\exp\big(z_{t, j}\big)
-}
-\right)
+\mathcal{L}(\theta) = - \frac{1}{T} \sum_{t=1}^{T} \log \left( \frac{ \exp\big(z_{t, y_t}\big) }{ \sum_{j=1}^{|V|} \exp\big(z_{t, j}\big) } \right)
 $$
 
 Also called the average of **negative log likelihood**. Once logits are calculated, we change the shape from (B, T, C) to (B\*T, C) and the target shape from (B, T) to (B\*T) these shapes are needed for loss calculation. We pass our logits and targets to the cross entropy method.  
@@ -638,10 +625,7 @@ Now we will do the backward pass on the parameters. In this we will calculate th
 Backward pass calculates 
 
 $$
-\nabla_\theta \mathcal{L}
-=
-\frac{\partial \mathcal{L}}{\partial \theta}
-$$ 
+\nabla_\theta \mathcal{L} = \frac{\partial \mathcal{L}}{\partial \theta} $$ 
 
 For all parameters in the model. That means how much each weight contributed to the loss. Think of it like a long chain.    
 
@@ -672,31 +656,19 @@ $$
 Backward pass computes
 
 $$
-\nabla_\theta \mathcal{L}
-=
-\frac{\partial \mathcal{L}}{\partial \theta}
+\nabla_\theta \mathcal{L} = \frac{\partial \mathcal{L}}{\partial \theta}
 $$
 
 Simple chain rule
 
 $$
-\frac{\partial \mathcal{L}}{\partial \theta}
-=
-\frac{\partial \mathcal{L}}{\partial z}
-\cdot
-\frac{\partial z}{\partial \theta}
+\frac{\partial \mathcal{L}}{\partial \theta} = \frac{\partial \mathcal{L}}{\partial z} \cdot \frac{\partial z}{\partial \theta}
 $$
 
 Deep network chain rule
 
 $$
-\frac{\partial \mathcal{L}}{\partial \theta}
-=
-\frac{\partial \mathcal{L}}{\partial h_n}
-\frac{\partial h_n}{\partial h_{n-1}}
-\frac{\partial h_{n-1}}{\partial h_{n-2}}
-\cdots
-\frac{\partial h_1}{\partial \theta}
+\frac{\partial \mathcal{L}}{\partial \theta} = \frac{\partial \mathcal{L}}{\partial h_n} \frac{\partial h_n}{\partial h_{n-1}} \frac{\partial h_{n-1}}{\partial h_{n-2}} \cdots \frac{\partial h_1}{\partial \theta}
 $$
 
 ```python
@@ -723,15 +695,7 @@ $$
 #### Gradient Descent with L2 regularization  
 
 $$
-\theta_t =
-\theta_{t-1}
--
-\eta
-\left(
-\nabla_\theta f_t(\theta_{t-1})
-+
-\lambda \theta_{t-1}
-\right)
+\theta_t = \theta_{t-1} - \eta \left( \nabla_\theta f_t(\theta_{t-1}) + \lambda \theta_{t-1} \right)
 $$
 
 **AdamW Optimizer**   
