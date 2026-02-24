@@ -703,8 +703,9 @@ $$
 AdamW combines Adam’s adaptive moment estimation (momentum + RMS scaling + bias correction) with decoupled weight decay. Unlike classic L2 regularization, weight decay in AdamW is applied directly to parameters after the adaptive update, preventing it from being scaled by second-moment estimates. This improves generalization and training stability in large transformer models.  
 
 Gradient (slope of loss)  
-$$
-g_t = \nabla_\theta f_t(\theta_{t-1}) 
+
+$$  
+g_t = \nabla_\theta f_t(\theta_{t-1})
 $$
 
 1st moment (moving averages)  
