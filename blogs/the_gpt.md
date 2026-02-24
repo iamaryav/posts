@@ -29,7 +29,10 @@ By the end of this blog, we’ll build our own tiny GPT, train it on the Shakesp
 Formally, GPT is a language model that assigns a probability to a sequence of tokens.  
 
 $$
-P(x_1, x_2, \dots, x_T) = \prod_{t=1}^T P(x_t \mid x_{<t})
+P(x_1, x_2, \dots, x_T)
+=
+\prod_{t=1}^{T}
+P(x_t \mid x_{< t})
 $$
 
 This comes from the chain rule of probability and is described in the paper [A Neural Probabilistic Language Model by Bengio et al. 2003](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf). It states that the probability of an entire sequence can be decomposed into a product of conditional next-token probabilities. In practice, GPT does not predict a full sentence at once. Instead, it learns to predict the next token given all previous tokens.     
